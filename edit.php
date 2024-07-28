@@ -2,6 +2,31 @@
 
 <div id="main-content">
     <h2>Update Record</h2>
+    <?php
+    $conn=mysqli_connect("localhost","root","","crud") ;
+
+    if($conn){
+        echo "connection successful!";
+    }else {
+        echo"not right";
+    }
+ $stu_id = $_GET["id"]; // because we are taking the value from the URL
+    $sql="SELECT * FROM student  WHERE sid={$stu_id}";
+
+    $result= mysqli_query($conn,$sql) ;
+
+    if($result){
+        echo"query successfull";
+    }else{
+        echo"query unsuccesfull";
+    }
+    
+
+   if(mysqli_num_rows($result)> 0){
+
+
+
+    ?>
     <form class="post-form" action="updatedata.php" method="post">
       <div class="form-group">
           <label>Name</label>
